@@ -1,0 +1,29 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:50px">
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td><a href="/Category/CategoryDelete/@item.CategoryID/" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Category/CategoryUpdate/@item.CategoryID/" class="btn btn-outline-warning">Güncelle</a></td>
+        </tr>
+
+       
+    }
+
+</table>
+<a href="/Category/CategoryAdd/" class="btn btn-outline-success"> Yeni Kategori Ekle</a>

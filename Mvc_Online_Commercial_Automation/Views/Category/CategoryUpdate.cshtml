@@ -1,0 +1,27 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Category
+@{
+    ViewBag.Title = "CategoryUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <div class="form form-group">
+        @Html.HiddenFor(x => x.CategoryID)
+        @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-outline-warning">Güncelle</button>
+}
+
+
+
+
+
+
