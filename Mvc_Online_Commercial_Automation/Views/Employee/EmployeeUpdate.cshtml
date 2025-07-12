@@ -1,0 +1,26 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Employee
+@{
+    ViewBag.Title = "EmployeeUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post))
+{
+    <div class="form form-group">
+        @Html.HiddenFor(x => x.EmployeeID)
+        @Html.LabelFor(x => x.EmployeeName)
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        @Html.LabelFor(x => x.EmployeeSurname)
+        @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+        @Html.LabelFor(x => x.EmployeeImage)
+        @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+        @Html.LabelFor(x => x.Department.DepartmentName)
+        @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.departments, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-outline-warning">Güncelle</button>
+}

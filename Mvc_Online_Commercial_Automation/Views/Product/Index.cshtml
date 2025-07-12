@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<table class="table table-bordered" style="margin-top:50px">
+<table id="tbl1" class="table table-bordered" style="margin-top:50px">
     <tr>
         <th>ID</th>
         <th>Ürün Adı</th>
@@ -33,7 +33,7 @@
             {
                 <td>Hala Satışta</td>
             }
-            @if(item.Status == false)
+            @if (item.Status == false)
             {
                 <td>Satışta Değil</td>
             }
@@ -48,3 +48,22 @@
 
 </table>
 <a href="/Product/ProductAdd/" class="btn btn-outline-success"> Yeni Ürün Ekle</a>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+
+        }
+    });
+</script>
+

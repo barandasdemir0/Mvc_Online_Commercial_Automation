@@ -1,0 +1,44 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Cari
+@{
+    ViewBag.Title = "CariAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Yeni Cari Sayfası</h2>
+<br />
+<form method="post" class="form form-group">
+
+    <div class="form form-group">
+        @Html.LabelFor(x => x.CariName)
+        <br />
+        @Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariName,"",new {@style="color:Red"})
+        <br />
+        @Html.LabelFor(x => x.CariSurname)
+        <br />
+        @Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariSurname, "", new { @style = "color:Red" })
+        <br />
+        @Html.LabelFor(x => x.CariCity)
+        <br />
+        @Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariCity, "", new { @style = "color:Red" })
+        <br />
+        @Html.LabelFor(x => x.CariMail)
+        <br />
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:Red" })
+        <br />
+    </div>
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+
+
+
+</form>
+
+
+

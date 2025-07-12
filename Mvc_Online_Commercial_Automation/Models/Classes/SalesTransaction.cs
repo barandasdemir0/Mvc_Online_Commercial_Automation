@@ -11,11 +11,14 @@ namespace Mvc_Online_Commercial_Automation.Models.Classes
         [Key]
         public int SatidID { get; set; }
         //ÜRÜN
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
+        public int ProductID { get; set; }
         //CARİ
-        public Cari Cariler { get; set; }
+        public virtual Cari Cariler { get; set; }
+        public int CariID { get; set; }
         //EMPLOYEE
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
+        public int EmployeeID { get; set; }
         public DateTime Date { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }

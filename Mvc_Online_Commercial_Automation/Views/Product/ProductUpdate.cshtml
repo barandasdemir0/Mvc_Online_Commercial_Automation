@@ -13,7 +13,7 @@
 @using (Html.BeginForm("ProductUpdate", "Product", FormMethod.Post))
 {
     <div class="form form-group">
-        @Html.HiddenFor(x=>x.ProductID)
+        @Html.HiddenFor(x => x.ProductID)
         @Html.LabelFor(x => x.ProductName)
         @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
         <br />
@@ -30,7 +30,13 @@
         @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
         <br />
         @Html.LabelFor(x => x.Status)
-        @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+       
+        @Html.DropDownListFor(x => x.Status, new List<SelectListItem>
+{
+    new SelectListItem { Text = "Aktif", Value = "true" },
+    new SelectListItem { Text = "Pasif", Value = "false" }
+},  new { @class = "form-control" })
+
         <br />
         @Html.LabelFor(x => x.ProductImage)
         @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })

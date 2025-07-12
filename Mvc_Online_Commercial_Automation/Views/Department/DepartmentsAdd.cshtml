@@ -1,0 +1,45 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmentsAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Yeni Departman Sayfası</h2>
+<br />
+<form method="post" class="form form-group">
+
+    <div class="form form-group">
+        @Html.LabelFor(x => x.DepartmentName)
+        <br />
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Status)
+        <br />
+        @Html.DropDownListFor(
+        x => x.Status,
+        new List<SelectListItem>
+        {
+        new SelectListItem
+        {Text = "Aktif" , Value = "True"},
+        new SelectListItem
+ {Text = "Pasif", Value ="False"} },
+        new
+         {
+             @class = "form-control"
+        })
+
+
+        <br />
+    </div>
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+
+
+
+</form>
+
+
+

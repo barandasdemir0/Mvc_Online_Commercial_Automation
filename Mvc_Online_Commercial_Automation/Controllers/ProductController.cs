@@ -34,6 +34,9 @@ namespace Mvc_Online_Commercial_Automation.Controllers
            
 
 
+            ViewBag.deger1 = values;
+
+
 
             return View();
         }
@@ -86,6 +89,15 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             values.CategoryID = product.CategoryID;
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+
+        
+        public ActionResult ListProduct()
+        {
+            var values = context.Products.ToList();
+            return View(values);
         }
     }
 }

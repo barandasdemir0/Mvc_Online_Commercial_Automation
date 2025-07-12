@@ -24,6 +24,8 @@ namespace Mvc_Online_Commercial_Automation.Models.Classes
         [StringLength(250)]
         public string EmployeeImage { get; set; }
         public ICollection<SalesTransaction> SalesTransaction { get; set; }
-        public Department Department { get; set; } //bir çalışan sadece bir departmanda bulunabilir
+        public virtual Department Department { get; set; } //bir çalışan sadece bir departmanda bulunabilir
+
+        public int DepartmentID { get; set; }
     }
 }

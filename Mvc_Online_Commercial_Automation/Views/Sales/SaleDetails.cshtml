@@ -1,0 +1,57 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "SaleDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<br />
+<br />
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Satış ürün Detay Sayfası</li>
+</ol>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Ürün</th>
+        <th>Müşteri</th>
+        <th>Satıcı</th>
+        <th>Tutar</th>
+        <th>Adet</th>
+        <th>Toplam Tutar</th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SatidID</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Cariler.CariName  @item.Cariler.CariSurname</td>
+            <td>@item.Employee.EmployeeName  @item.Employee.EmployeeSurname</td>
+            <td>@item.Price</td>
+            <td>@item.Quantity</td>
+            <td>@item.TotalPrice</td>
+
+            @*<td>@item.Date.ToString("dd.MM.yyyy")</td>*@
+
+
+
+
+
+
+        </tr>
+    }
+</table>
+<button class="btn btn-outline-info">Yazdır</button>
+
+
+
+

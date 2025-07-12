@@ -15,6 +15,7 @@ namespace Mvc_Online_Commercial_Automation.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string DepartmentName { get; set; }
+        public bool Status { get; set; }
 
         public ICollection<Employee> Employees { get; set; } // her departmanda bir çok çalışan bulunabilir
     }

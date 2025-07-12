@@ -1,0 +1,58 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table id="tbl1" class="table table-bordered" style="margin-top:50px">
+    <tr>
+        <th>ID</th>
+        <th>Ad Soyad</th>
+        <th>Resim</th>
+        <th>Departman</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmployeeID</td>
+            <td>@item.EmployeeName @item.EmployeeSurname</td>
+            <td>@item.EmployeeImage</td>
+            <td>@item.Department.DepartmentName</td>
+            <td><a href="/Department/DepartmentsEmployeeDetails/@item.EmployeeID/" class="btn btn-outline-danger">Satışlar</a></td>
+            <td><a href="/Employee/EmployeeUpdate/@item.EmployeeID/" class="btn btn-outline-warning">Güncelle</a></td>
+
+        </tr>
+
+
+    }
+
+</table>
+<a href="/Employee/EmployeeAdd/" class="btn btn-outline-success"> Yeni Personel Ekle</a>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+
+        }
+    });
+</script>
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmentsUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Departman Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("DepartmentsUpdate", "Department", FormMethod.Post))
+{
+    <div class="form form-group">
+        @Html.HiddenFor(x => x.DepartmentID)
+        @Html.LabelFor(x => x.DepartmentName)
+        <br />
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Status)
+        <br />
+        @Html.DropDownListFor(
+        x => x.Status,
+        new List<SelectListItem>
+        {
+        new SelectListItem
+        {Text = "Aktif" , Value = "True"},
+        new SelectListItem
+ {Text = "Pasif", Value ="False"} },
+        new
+         {
+             @class = "form-control"
+        })
+
+
+        <br />
+    </div>
+    <br />
+    <button class="btn btn-outline-warning">Güncelle</button>
+}
+
+
+
+
+
+
+
+

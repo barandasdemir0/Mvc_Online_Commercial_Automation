@@ -1,0 +1,36 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Cari
+@{
+    ViewBag.Title = "CariUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Cari Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("CariUpdate", "Cari", FormMethod.Post))
+{
+    <div class="form form-group">
+        @Html.HiddenFor(x => x.CariID)
+        @Html.LabelFor(x => x.CariName)
+        @Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })
+        @Html.LabelFor(x => x.CariSurname)
+        @Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })
+        @Html.LabelFor(x => x.CariCity)
+        @Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })
+        @Html.LabelFor(x => x.CariMail)
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-outline-warning">Güncelle</button>
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:50px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Personel Ad Soyad</th>
+            <th>Müşteri Ad Soyad</th>
+            <th>Ürün Ad</th>
+            <th>Ürün adedi</th>
+            <th>Ürün fiyatı</th>
+            <th>Toplam Ücret</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SatidID</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+            <td>@item.Cariler.CariName  @item.Cariler.CariSurname </td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+            <td>@item.TotalPrice</td>
+            <td>@item.Date.ToString("dd.MM.yyyy")</td>
+            <td><a href="/Sales/SaleUpdate/@item.SatidID/" class="btn btn-outline-warning">Güncelle</a></td>
+            <td><a href="/Sales/SaleDetails/@item.SatidID/" class="btn btn-outline-secondary">Detaylar</a></td>
+
+        </tr>
+
+
+    }
+
+</table>
+<a href="/Sales/SaleAdd/" class="btn btn-outline-success"> Yeni Satış Ekle</a>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+
+        }
+    });
+</script>
+

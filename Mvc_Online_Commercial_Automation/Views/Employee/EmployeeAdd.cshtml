@@ -1,0 +1,40 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Employee
+@{
+    ViewBag.Title = "EmployeeAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<br />
+<h2>Yeni Personel Sayfası</h2>
+<br />
+<form method="post" class="form form-group">
+
+    <div class="form form-group">
+        @Html.LabelFor(x => x.EmployeeName)
+        <br />
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.EmployeeSurname)
+        <br />
+        @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.EmployeeImage)
+        <br />
+        @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Department.DepartmentName)
+        <br />
+        @Html.DropDownListFor(x => x.DepartmentID,(List<SelectListItem>)ViewBag.departments, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+
+
+
+</form>
+
+
+
