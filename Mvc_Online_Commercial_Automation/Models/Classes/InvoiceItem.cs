@@ -20,6 +20,7 @@ namespace Mvc_Online_Commercial_Automation.Models.Classes
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
 
-        public Invoice Invoice { get; set; } //birfatura kalemin sadece bir faturası olabilir
+        public int InvoiceID { get; set; }
+        public virtual Invoice Invoice { get; set; } //birfatura kalemin sadece bir faturası olabilir
     }
 }

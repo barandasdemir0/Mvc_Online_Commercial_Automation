@@ -1,0 +1,58 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Invoice
+@{
+    ViewBag.Title = "InvoiceAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<br />
+<h2>Yeni Fatura Sayfası</h2>
+<br />
+<form method="post" class="form form-group">
+
+    <div class="form form-group">
+        @Html.LabelFor(x => x.InvoiceSerialNumber)
+        <br />
+        @Html.TextBoxFor(x => x.InvoiceSerialNumber, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.InvoiceNumber)
+        <br />
+        @Html.TextBoxFor(x => x.InvoiceNumber, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.TaxOffice)
+        <br />
+        @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.DeliveredBy)
+        <br />
+        @Html.TextBoxFor(x => x.DeliveredBy, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.ReceivedBy)
+        <br />
+        @Html.TextBoxFor(x => x.ReceivedBy, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Date)
+        <br />
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Hours)
+        <br />
+        @Html.TextBoxFor(x => x.Hours, new { @class = "form-control" })
+        <br />
+
+
+    </div>
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+
+
+
+</form>
+
+
+
+
+

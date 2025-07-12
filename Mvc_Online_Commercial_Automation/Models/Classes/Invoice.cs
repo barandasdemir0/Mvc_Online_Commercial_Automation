@@ -32,7 +32,12 @@ namespace Mvc_Online_Commercial_Automation.Models.Classes
         [StringLength(30)]
         public string ReceivedBy { get; set; } //teslim alan
         public DateTime Date { get; set; } //tarih
-        public DateTime Hours { get; set; } //saat
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(5)]
+        public string Hours { get; set; } //saat
+
+        public decimal TotalPrice { get; set; }
 
         public ICollection<InvoiceItem> InvoiceItems { get; set; }  //bir faturannın birden fazla kalemi olaiblir
     }

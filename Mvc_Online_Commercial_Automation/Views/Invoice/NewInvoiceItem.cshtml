@@ -1,0 +1,56 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.InvoiceItem
+@{
+    ViewBag.Title = "NewInvoiceItem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<br />
+<h2>Yeni Fatura Kalem Sayfası</h2>
+<br />
+<form method="post" class="form form-group">
+
+    <div class="form form-group">
+        @Html.LabelFor(x => x.InvoiceID)
+        <br />
+        @Html.TextBoxFor(x => x.InvoiceID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Description)
+        <br />
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Amount)
+        <br />
+        @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.UnitPrice)
+        <br />
+        @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.TotalPrice)
+        <br />
+        @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+        <br />
+
+
+
+    </div>
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+
+
+
+</form>
+
+
+
+
+
+
+

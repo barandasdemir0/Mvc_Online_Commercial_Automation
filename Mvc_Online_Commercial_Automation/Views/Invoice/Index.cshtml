@@ -1,0 +1,61 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table id="tbl1" class="table table-bordered" style="margin-top:50px">
+    <tr>
+        <th>ID</th>
+        <th>Seri no</th>
+        <th>Sıra no</th>
+        <th>Vergi Dairesi</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Toplam</th>
+        <th>Teslim Eden </th>
+        <th>Teslim Alan</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.InvoiceID</td>
+            <td>@item.InvoiceSerialNumber</td>
+            <td>@item.InvoiceNumber</td>
+            <td>@item.TaxOffice</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td>@item.Hours</td>
+            <td>@item.TotalPrice</td>
+            <td>@item.DeliveredBy</td>
+            <td>@item.ReceivedBy</td>
+            <td><a href="/Invoice/InvoiceUpdate/@item.InvoiceID/" class="btn btn-outline-primary">Güncelle</a></td>
+            <td><a href="/Invoice/InvoiceDetails/@item.InvoiceID/" class="btn btn-outline-warning">Detaylar</a></td>
+
+        </tr>
+
+
+    }
+
+</table>
+<a href="/Invoice/InvoiceAdd/" class="btn btn-outline-success"> Yeni Fatura Ekle</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
