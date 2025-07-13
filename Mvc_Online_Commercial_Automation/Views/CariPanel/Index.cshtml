@@ -1,0 +1,38 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Cari
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+
+<br />
+
+@using (Html.BeginForm("Index2", "CariPanel", FormMethod.Post))
+{
+<table class="table table-bordered">
+    <tr>
+        <td>
+            <label>Mail Adresi :  @HttpContext.Current.User.Identity.Name</label>
+        </td>
+    </tr>
+    <tr>
+
+    <tr>
+        <td>@Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+
+        <td>@Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+       
+        <td>@Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(x => x.Password, new { @class = "form-control" })</td>
+
+    </tr>
+</table>
+<button class="btn btn-outline-warning">Bilgilerimi Güncelle</button>
+}
+

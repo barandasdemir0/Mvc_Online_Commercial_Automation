@@ -77,6 +77,13 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult PersonelDetails()
+        {
+                       var values = context.Employees.ToList();
+            return View(values);
+        }
+
       
 
     }

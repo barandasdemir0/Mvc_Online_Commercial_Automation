@@ -1,0 +1,41 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:50px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Personel Ad Soyad</th>
+           
+            <th>Ürün Ad</th>
+            <th>Ürün adedi</th>
+            <th>Ürün fiyatı</th>
+            <th>Toplam Ücret</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SatidID</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+            <td>@item.TotalPrice</td>
+            <td>@item.Date.ToShortDateString()</td>
+
+        </tr>
+
+
+    }
+
+</table>
+
+

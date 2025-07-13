@@ -31,6 +31,13 @@ namespace Mvc_Online_Commercial_Automation.Models.Classes
         [Required(ErrorMessage = "Cari adı boş bırakılamaz")]
         [StringLength(50, ErrorMessage = "50 Karakterden Fazla olamaz")]
         public string CariMail { get; set; }
+
+
+        [Column(TypeName = "Varchar")]
+        [Required(ErrorMessage = "Cari adı boş bırakılamaz")]
+        [StringLength(20, ErrorMessage = "50 Karakterden Fazla olamaz")]
+        public string Password { get; set; }
+
         public bool status { get; set; }
         public ICollection<SalesTransaction> SalesTransaction { get; set; }
 

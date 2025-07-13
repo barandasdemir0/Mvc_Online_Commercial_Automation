@@ -27,11 +27,12 @@ namespace Mvc_Online_Commercial_Automation.Controllers
         [HttpPost]
         public ActionResult CariAdd(Cari cari)
         {
+            cari.status = true;
             if (!ModelState.IsValid)
             {
                 return View("CariAdd"); // hatalıysa sayfayı geri göster
             }
-            cari.status = true;
+           
             context.Carilers.Add(cari);
             context.SaveChanges();
             return RedirectToAction("Index");
