@@ -151,6 +151,9 @@
     <Compile Include="Models\Classes\Details.cs" />
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
+    <Compile Include="Models\Classes\GroupClass.cs" />
+    <Compile Include="Models\Classes\GroupClass2.cs" />
+    <Compile Include="Models\Classes\GroupClass3.cs" />
     <Compile Include="Models\Classes\Invoice.cs" />
     <Compile Include="Models\Classes\InvoiceItem.cs" />
     <Compile Include="Models\Classes\Product.cs" />
@@ -2851,6 +2854,11 @@
     <Content Include="thumber\scss\_site-blocks.scss" />
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\ProductDetails\Index.cshtml" />
+    <Content Include="Views\Static\EasyTable.cshtml" />
+    <Content Include="Views\Static\PartialEasy1.cshtml" />
+    <Content Include="Views\Static\PartialEasy2.cshtml" />
+    <Content Include="Views\Static\PartialEasy3.cshtml" />
+    <Content Include="Views\Static\PartialEasy4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

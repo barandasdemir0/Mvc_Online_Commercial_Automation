@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Mvc_Online_Commercial_Automation.Models.Classes.GroupClass3>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Markaların Kaç ürünü var</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Task</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>1.</td>
+                        <td>@item.BrandName</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">@item.Total</span></td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
