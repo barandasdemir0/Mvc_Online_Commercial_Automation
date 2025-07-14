@@ -4,10 +4,19 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<br />
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+            {
+                <p>
+                    Ürün adı : @Html.TextBox("aranacak")
+                    <input type="submit"  value="Aranacak değer" />
+                </p>
+            }
 
+<br />
 <table id="tbl1" class="table table-bordered" style="margin-top:50px">
     <tr>
-        <th>ID</th>
+        @*<th>ID</th>*@
         <th>Ürün Adı</th>
         <th>Marka Adı</th>
         <th>Stok</th>
@@ -15,7 +24,7 @@
         <th>Satış Fiyatı</th>
         <th>Halen Satıştamı</th>
         <th>Kategorisi</th>
-        <th>Resmi</th>
+        @*<th>Resmi</th>*@
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -23,12 +32,12 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.ProductID</td>
+            @*<td>@item.ProductID</td>*@
             <td>@item.ProductName</td>
             <td>@item.BrandName</td>
             <td>@item.Stock</td>
-            <td>@item.PurchasePrice</td>
-            <td>@item.SalePrice</td>
+            <td>@item.PurchasePrice ₺</td>
+            <td>@item.SalePrice ₺</td>
             @if (item.Status == true)
             {
                 <td>Hala Satışta</td>
@@ -38,7 +47,7 @@
                 <td>Satışta Değil</td>
             }
             <td>@item.Category.CategoryName </td>
-            <td>@item.ProductImage</td>
+            @*<td>@item.ProductImage</td>*@
             <td><a href="/Product/ProductDelete/@item.ProductID/" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="/Product/ProductUpdate/@item.ProductID/" class="btn btn-outline-warning">Güncelle</a></td>
         </tr>
@@ -48,22 +57,4 @@
 
 </table>
 <a href="/Product/ProductAdd/" class="btn btn-outline-success"> Yeni Ürün Ekle</a>
-
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-
-<script>
-    $('#tbl1').dataTable({
-        "language": {
-
-            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
-
-        }
-    });
-</script>
-
+@*@Html.PagedListPager((PagedList.IPagedList)Model,sayfa => Url.Action("Index" , new {sayfa}))*@

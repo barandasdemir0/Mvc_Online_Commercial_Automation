@@ -1,6 +1,7 @@
 ﻿using Mvc_Online_Commercial_Automation.Models.Classes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,8 +37,15 @@ namespace Mvc_Online_Commercial_Automation.Controllers
         public ActionResult EmployeeAdd(Employee employee)
         {
 
-          
 
+            if (Request.Files.Count>0)
+            {
+                string fileName = Path.GetFileName(Request.Files[0].FileName); 
+                string Extension = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Image/" + fileName + Extension;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                employee.EmployeeImage = "/Image/" + fileName + Extension; //dosya yolu
+            }
 
             context.Employees.Add(employee);
             context.SaveChanges();
@@ -67,7 +75,15 @@ namespace Mvc_Online_Commercial_Automation.Controllers
         public ActionResult EmployeeUpdate(Employee employee)
         {
 
-           
+            if (Request.Files.Count > 0)
+            {
+                string fileName = Path.GetFileName(Request.Files[0].FileName);
+                string Extension = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Image/" + fileName + Extension;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                employee.EmployeeImage = "/Image/" + fileName + Extension; //dosya yolu
+            }
+
             var values = context.Employees.Find(employee.EmployeeID);
             values.EmployeeName = employee.EmployeeName;
             values.EmployeeSurname = employee.EmployeeSurname;

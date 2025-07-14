@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -54,6 +55,42 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             }
                
         }
+
+
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminLogin(Admin admin)
+        {
+          
+            var bilgiler = context.Admins.FirstOrDefault(x => x.Username == admin.Username && x.Password == admin.Password);
+            if (bilgiler != null)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.Username, false);
+                Session["Username"] = bilgiler.Username; // oturum açmak için session kullanıyoruz
+                ViewBag.Username = bilgiler.Username;
+                return RedirectToAction("Index", "Category");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+          
+
+
+
+
+
+
+
+
+
+        }
+
 
     }
 }

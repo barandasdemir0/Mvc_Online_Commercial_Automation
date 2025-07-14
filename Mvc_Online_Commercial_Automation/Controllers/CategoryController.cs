@@ -5,6 +5,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 using Mvc_Online_Commercial_Automation.Models.Classes;
+using PagedList;
 
 namespace Mvc_Online_Commercial_Automation.Controllers
 {
@@ -13,9 +14,9 @@ namespace Mvc_Online_Commercial_Automation.Controllers
         // GET: Category
 
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1) // sayfa parametresi ile kaçıncı sayfada olduğumuzu belirliyoruz
         {
-            var values = context.Categories.ToList();
+            var values = context.Categories.ToList().ToPagedList(sayfa,5); // ToPagedList metodu ile sayfalama işlemi yapıyoruz, 5 tane veri gösterilecek şekilde ayarlıyoruz
             return View(values);
         }
 

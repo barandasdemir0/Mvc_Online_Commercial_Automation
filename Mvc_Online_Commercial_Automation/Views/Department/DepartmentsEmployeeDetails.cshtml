@@ -15,7 +15,6 @@
 <table class="table table-bordered">
 
     <tr>
-        <th>ID</th>
         <th>Ad SoyAd</th>
         <th>Tarih</th>
         <th>Adet</th>
@@ -30,12 +29,11 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.EmployeeID</td>
             <td>@item.Employee.EmployeeName  @item.Employee.EmployeeSurname</td>
-            <td>@item.Date.ToString("dd.MM.yyyy")</td>
-            <td>@item.Quantity</td>
-            <td>@item.Price</td>
-            <td>@item.TotalPrice</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td>@item.Quantity adet</td>
+            <td>@item.Price ₺</td>
+            <td>@item.TotalPrice ₺</td>
             <td>@item.Cariler.CariName @item.Cariler.CariSurname</td>
             <td>@item.Product.ProductName</td>
             <td><a href="#" class="btn btn-outline-info">Yazdır</a></td>

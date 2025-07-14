@@ -1,4 +1,5 @@
 ﻿using Mvc_Online_Commercial_Automation.Models.Classes;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,14 @@ namespace Mvc_Online_Commercial_Automation.Controllers
         // GET: Product
 
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(/*int sayfa=1,*/string aranacak)
         {
-            var result = context.Products.Where(x => x.Status == true).ToList();
-            return View(result);
+            var result = from x in context.Products select x; /*ToPagedList(sayfa,4);*/
+            if (!string.IsNullOrEmpty(aranacak))
+            {
+                result = result.Where(x => x.ProductName.Contains(aranacak) || x.BrandName.Contains(aranacak)); // Filtering products based on the search term 
+            }
+            return View(result.ToList());
         }
 
         [HttpGet]

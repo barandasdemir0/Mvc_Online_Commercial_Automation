@@ -10,6 +10,8 @@
 <br />
 <h2>Yeni Personel Sayfası</h2>
 <br />
+@using(Html.BeginForm("EmployeeAdd","Employee",FormMethod.Post,new {enctype = "multipart/form-data"}))
+{ 
 <form method="post" class="form form-group">
 
     <div class="form form-group">
@@ -23,7 +25,8 @@
         <br />
         @Html.LabelFor(x => x.EmployeeImage)
         <br />
-        @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })*@
+    <input type="file" name="EmployeeImage" value="" />
         <br />
         @Html.LabelFor(x => x.Department.DepartmentName)
         <br />
@@ -36,5 +39,5 @@
 
 </form>
 
-
+}
 

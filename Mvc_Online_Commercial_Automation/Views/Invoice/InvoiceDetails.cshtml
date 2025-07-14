@@ -25,7 +25,6 @@
 <table class="table table-bordered">
 
     <tr>
-        <th>ID</th>
         <th>Açıklama</th>
         <th>Miktar</th>
         <th>Birim Fiyat</th>
@@ -36,11 +35,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.InvoiceItemID</td>
             <td>@item.Description</td>
-            <td>@item.Amount</td>
-            <td>@item.UnitPrice</td>
-            <td>@item.TotalPrice</td>
+            <td>@item.Amount adet</td>
+            <td>@item.UnitPrice ₺</td>
+            <td>@item.TotalPrice ₺</td>
         </tr>
     }
 </table>

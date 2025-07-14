@@ -70,7 +70,7 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             ViewBag.d15 = deger15;
 
 
-            var deger16 = context.SalesTransactions.Where(x => x.Date == DateTime.Today).Sum(y => y.TotalPrice).ToString(); ;
+            var deger16 = context.SalesTransactions.Where(x => x.Date == DateTime.Today).Sum(y =>(decimal?)y.TotalPrice).ToString(); ;
             ViewBag.d16 = deger16;
 
 
