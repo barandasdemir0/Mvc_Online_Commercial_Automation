@@ -104,5 +104,44 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             var values = context.Products.ToList();
             return View(values);
         }
+
+
+        [HttpGet]
+        public ActionResult ProductSale(int id)
+        {
+            List<SelectListItem> employeeList = (from x in context.Employees.ToList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.EmployeeName + " " + x.EmployeeSurname,
+                                                     Value = x.EmployeeID.ToString()
+                                                 }).ToList();
+
+            ViewBag.employeeList = employeeList;
+
+            var deger1 = context.Products.Find(id);
+            ViewBag.productid = deger1.ProductID;
+            ViewBag.price = deger1.SalePrice;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ProductSale(SalesTransaction sales)
+        {
+            sales.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            context.SalesTransactions.Add(sales);
+            context.SaveChanges();
+            return RedirectToAction("Index","Sales");
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

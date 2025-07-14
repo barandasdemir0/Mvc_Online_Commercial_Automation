@@ -27,6 +27,7 @@
         @*<th>Resmi</th>*@
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Satış Yap</th>
     </tr>
 
     @foreach (var item in Model)
@@ -50,6 +51,7 @@
             @*<td>@item.ProductImage</td>*@
             <td><a href="/Product/ProductDelete/@item.ProductID/" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="/Product/ProductUpdate/@item.ProductID/" class="btn btn-outline-warning">Güncelle</a></td>
+            <td><a href="/Product/ProductSale/@item.ProductID/" class="btn btn-outline-secondary">Satış Yap</a></td>
         </tr>
 
 

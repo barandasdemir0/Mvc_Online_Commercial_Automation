@@ -1,0 +1,42 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<CargoTracking>
+@{
+    ViewBag.Title = "CargoDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kargo Detay Sayfası</li>
+</ol>
+
+<table class="table table-bordered">
+
+    <tr>
+
+
+        <th>Kargo Kodu</th>
+        <th>Detay</th>
+        <th>Tarih</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CargoTrackingNumber</td>
+            <td>@item.Description</td>
+            <td>@item.Date.ToShortDateString()</td>
+        </tr>
+    }
+</table>
+
+
+
+
+
+
+
+

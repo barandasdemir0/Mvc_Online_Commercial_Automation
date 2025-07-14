@@ -1,0 +1,57 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <p>
+        Kargo Numarası : @Html.TextBox("aranacak")
+        <input type="submit" value="Aranacak değer" />
+    </p>
+}
+
+<br />
+
+
+<table id="tbl1" class="table table-bordered" style="margin-top:50px">
+    <tr>
+        <th>Kargo Detay</th>
+        <th>Takip kodu</th>
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Tarih</th>
+        <th>Detay</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Description</td>
+            <td>@item.CargoTrackingNumber</td>
+            <td>@item.Employee</td>
+            <td>@item.Cari</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td><a href="/Cargo/CargoDetails/@item.CargoDetailId/" class="btn btn-outline-primary">Detaylar</a></td>
+        </tr>
+
+
+    }
+
+</table>
+<a href="/Cargo/CargoAdd/" class="btn btn-outline-success"> Yeni Kargo Ekle</a>
+
+
+
+
+
+
+
+
+
+
+
+

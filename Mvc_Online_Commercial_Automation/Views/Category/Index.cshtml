@@ -6,7 +6,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<script src="~/Scripts/jquery-3.7.0.js"></script>
 <table id="tbl1" class="table table-bordered" style="margin-top:50px">
     <tr>
         @*<th>ID</th>*@
@@ -29,4 +29,5 @@
 
 </table>
 @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
-<a href="/Category/CategoryAdd/" class="btn btn-outline-success"> Yeni Kategori Ekle</a>
+<a href="/Category/CategoryAdd/" class="btn btn-outline-success" > Yeni Kategori Ekle</a>
+
