@@ -5,33 +5,46 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<br />
-<br />
-<br />
-<ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Kargo Detay Sayfası</li>
-</ol>
 
-<table class="table table-bordered">
+
+
+<br />
+<br />
+
+
+<table class="table table-striped">
 
     <tr>
 
 
-        <th>Kargo Kodu</th>
         <th>Detay</th>
         <th>Tarih</th>
 
     </tr>
-
+    @{int sayi = 0; }
     @foreach (var item in Model)
     {
+
+
         <tr>
-            <td>@item.CargoTrackingNumber</td>
+            <td>@{sayi++;} @sayi</td>
             <td>@item.Description</td>
-            <td>@item.Date.ToShortDateString()</td>
+            <td>@item.Date</td>
         </tr>
+
+
+
+
     }
 </table>
+
+
+
+
+
+
+
+
 
 
 
