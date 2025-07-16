@@ -67,7 +67,7 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             //var values = context.CargoTrackings.Where(x => x.CargoTrackingNumber == id).ToList();
             //var detectedTrackingNumber = context.CargoTrackings.Find(id);
             //ViewBag.TrackingNumber = detectedTrackingNumber.CargoTrackingNumber;
-            id = "762D86A81C";
+            //id = "762D86A81C";
             var values = context.CargoTrackings.Where(x => x.CargoTrackingNumber == id).ToList();
             return View(values);
         }

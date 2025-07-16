@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Graphic6";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <script src="~/Scripts/jquery-3.7.0.js"></script>
+    <title>Result Visualization</title>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+
+                type: "POST",
+
+                dataType: "json",
+
+                contentType: "application/json",
+
+                url: '@Url.Action("VisualizeProductResult2", "Graphic")',
+
+                success: function (result) {
+
+                    google.charts.load('current', {
+
+                        'packages': ['corechart']
+
+                    });
+
+                    google.charts.setOnLoadCallback(function () {
+
+                        drawChart(result);
+
+                    });
+
+                }
+
+            });
+
+        });
+
+
+
+        function drawChart(result) {
+
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'productName');
+
+            data.addColumn('number', 'stock');
+
+            var dataArray = [];
+
+
+
+            $.each(result, function (i, obj) {
+
+                dataArray.push([obj.productName, obj.stock]);
+
+            });
+
+            data.addRows(dataArray);
+
+
+
+            var columnChartOptions = {
+
+                title: "Ürün Stok Değerleri",
+
+                width: 1200,
+
+                height: 800,
+
+                bar: { groupWidth: "20%" },
+
+            };
+
+
+
+            var columnChart = new google.visualization.LineChart(document
+
+                .getElementById('LineChart_div'));
+
+
+
+            columnChart.draw(data, columnChartOptions);
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="LineChart_div"></div>
+
+    <a href="@Url.Action("Graphic5")" class="btn btn-danger">Pie Chart</a>
+
+    <a href="@Url.Action("Graphic7")" class="active btn btn-primary">Column Chart</a>
+
+    <a href="@Url.Action("Graphic6")" class="btn btn-warning">Line Chart</a>
+
+</body>
+
+</html>
+
+
+
+

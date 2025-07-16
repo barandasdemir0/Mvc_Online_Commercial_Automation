@@ -1,38 +1,376 @@
-﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Cari
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<Message>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CariLayout.cshtml";
 }
 
 
-<br />
+<!DOCTYPE html>
 
-@using (Html.BeginForm("Index2", "CariPanel", FormMethod.Post))
-{
-<table class="table table-bordered">
-    <tr>
-        <td>
-            <label>Mail Adresi :  @HttpContext.Current.User.Identity.Name</label>
-        </td>
-    </tr>
-    <tr>
+<html>
 
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })</td>
-    </tr>
-    <tr>
+<head>
 
-        <td>@Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })</td>
-    </tr>
-    <tr>
-       
-        <td>@Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })</td>
-    </tr>
-    <tr>
-        <td>@Html.TextBoxFor(x => x.Password, new { @class = "form-control" })</td>
+    <meta charset="utf-8">
 
-    </tr>
-</table>
-<button class="btn btn-outline-warning">Bilgilerimi Güncelle</button>
-}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <title>AdminLTE 3 | User Profile</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Profilim</h1>
+
+                    </div>
+
+
+
+                </div>
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- Main content -->
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+
+                        <div class="card card-primary card-outline">
+
+                            <div class="card-body box-profile">
+
+                                <div class="text-center">
+
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="~/AdminLTE-3.0.4/dist/img/user4-128x128.jpg"
+                                         alt="User profile picture">
+
+                                </div>
+                               
+
+
+
+                                <h3 class="profile-username text-center">@ViewBag.adsoyad</h3>
+
+                                <p class="text-muted text-center">@ViewBag.carimail</p>
+                                
+                                <ul class="list-group list-group-unbordered mb-3">
+
+                                    <li class="list-group-item">
+
+                                        <b>Satın Alınan Ürün Sayısı </b> <a class="float-right"> @ViewBag.totalbuy </a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Harcanan Para</b> <a class="float-right">@ViewBag.totalMoney ₺</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Alınan ürün sayısı</b> <a class="float-right">@ViewBag.totalproduct</a>
+
+                                    </li>
+
+                                </ul>
+
+                                <a href="/CariPanel/KargoTracking/" class="btn btn-primary btn-block"><b>Kargo Takip</b></a>
+
+                            </div>
+
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+                        <!-- About Me Box -->
+
+                        <div class="card card-primary">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">Hakkımda</h3>
+
+                            </div>
+
+                            <!-- /.card-header -->
+
+                            @foreach (var item in Model)
+                            {
+
+
+
+                            <div class="card-body">
+
+                                <strong><i class="fas fa-book mr-1"></i> Meslek</strong>
+
+                                <p class="text-muted">
+
+                                    meslek
+                              
+                                   
+
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-map-marker-alt mr-1"></i> Şehir</strong>
+
+                                <p class="text-muted">@*@item.CariCity*@ @ViewBag.city</p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-pencil-alt mr-1"></i> 05555555555</strong>
+
+                                <p class="text-muted">
+
+                                    <span class="tag tag-danger">Yetenek1</span>
+
+                                    <span class="tag tag-success">Yetenek1</span>
+
+                                    <span class="tag tag-info">Yetenek1</span>
+
+                                    <span class="tag tag-warning">Yetenek1</span>
+
+                                    <span class="tag tag-primary">Yetenek1</span>
+
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="far fa-file-alt mr-1"></i> Duyurular</strong>
+
+                                <p class="text-muted">Yeni Ürünler İçin Web Sitemizi Ziyaret edin</p>
+
+                            </div>
+                            }
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                    <div class="col-md-9">
+
+                        <div class="card">
+
+                            <div class="card-header p-2">
+
+                                <ul class="nav nav-pills">
+
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Mesajlar</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                                </ul>
+
+                            </div><!-- /.card-header -->
+
+                            <div class="card-body">
+
+                                <div class="tab-content">
+
+                                    <div class="active tab-pane" id="activity">
+
+                                        <!-- Post -->
+
+
+                                        <div class="post">
+                                            @foreach (var item in Model)
+                                            {
+
+                                            
+
+                                            <div class="user-block">
+
+                                                <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="user image">
+
+                                                <span class="username">
+
+                                                    <a href="#">@item.Sender</a>
+
+
+
+                                                </span>
+                                                @{
+                                                    DateTime dateTimenow = DateTime.Now;
+                                                    DateTime messageTime = item.Date;
+
+                                                    TimeSpan fark = dateTimenow - messageTime;
+
+                                                  
+
+                                                  
+                                                   
+                                            <span class="description">@item.Subject  - @Math.Floor(fark.TotalHours) saat önce</span>
+                                                    
+
+                                                }
+
+
+
+
+
+                                            </div>
+
+                                            <!-- /.user-block -->
+
+                                            <p>
+
+                                              @item.Content
+
+                                            </p>
+
+                                            }
+
+
+                                        </div>
+                                        
+
+                                    </div>
+                                       
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="timeline">
+
+                                        <!-- The timeline -->
+
+                                      @Html.Action("PartialAnnouncement", "CariPanel")
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="settings">
+
+                                        @Html.Action("PartialInfo","CariPanel")
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                </div>
+
+                                <!-- /.tab-content -->
+
+                            </div><!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+
+        <div class="float-right d-none d-sm-block">
+
+            <b>Version</b> 3.0.4
+
+        </div>
+
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+
+        reserved.
+
+    </footer>
+
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+
+</body>
+
+</html>

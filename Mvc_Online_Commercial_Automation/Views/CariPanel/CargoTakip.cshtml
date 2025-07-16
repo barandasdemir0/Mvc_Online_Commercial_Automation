@@ -1,0 +1,47 @@
+﻿@using Mvc_Online_Commercial_Automation.Models.Classes
+@model List<CargoTracking>
+@{
+    ViewBag.Title = "CargoTakip";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+
+<br />
+<br />
+
+
+<table class="table table-striped">
+
+    <tr>
+
+
+        <th>Detay</th>
+        <th>Tarih</th>
+
+    </tr>
+    @{int sayi = 0; }
+    @foreach (var item in Model)
+    {
+
+
+             <tr>
+                 <td>@{sayi++;} @sayi</td>
+                 <td>@item.Description</td>
+                 <td>@item.Date</td>
+            </tr>
+
+                        
+
+
+                     }
+</table>
+
+
+
+
+
+
+
+
+
+

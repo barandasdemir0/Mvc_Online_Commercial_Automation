@@ -85,7 +85,39 @@ namespace Mvc_Online_Commercial_Automation.Controllers
 
         }
 
+        public ActionResult Dynamic()
+        {
+            Class3 class3 = new Class3();
+            class3.Values1 = context.Invoices.ToList();
+            class3.Values2 = context.InvoiceItems.ToList();
+            return View(class3);
+        }
 
+        public ActionResult SaveBill(string InvoiceSerialNumber,string InvoiceNumber,DateTime Date,string TaxOffice, string Hours,string DeliveredBy, string ReceivedBy , string TotalPrice, InvoiceItem[] invoiceItems)
+        {
+            Invoice invoice = new Invoice();
+            invoice.InvoiceSerialNumber = InvoiceSerialNumber;
+            invoice.InvoiceNumber = InvoiceNumber;
+            invoice.Date = Date;
+            invoice.TaxOffice = TaxOffice;
+            invoice.Hours = Hours;
+            invoice.DeliveredBy = DeliveredBy;
+            invoice.ReceivedBy = ReceivedBy;
+            invoice.TotalPrice = decimal.Parse( TotalPrice);
+            context.Invoices.Add(invoice);
+            foreach (var item in invoiceItems)
+            {
+                InvoiceItem invoiceItem = new InvoiceItem();
+                invoiceItem.Description = item.Description;
+                invoiceItem.Amount = item.Amount;
+                invoiceItem.UnitPrice = item.UnitPrice;
+                invoiceItem.TotalPrice = item.TotalPrice;
+                context.InvoiceItems.Add(invoiceItem);
+            }
+           
+            context.SaveChanges();
+            return Json("İşlem Başarılı",JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

@@ -66,6 +66,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
                             Personeller
                         </a>
+                        <a class="nav-link" href="/Employee/PersonelDetails/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-people-carry"></i></div>
+                            Personellerin Listesi
+                        </a>
                         <a class="nav-link" href="/Todo/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-anchor"></i></div>
                             Yapılacaklar
@@ -84,20 +88,27 @@
 
 
 
+
+
+
                         <a class="nav-link collapsed" href="/Admin/Index/" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>
-                            Admin İşlemleri
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+                            Grafik İstatistikleri
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Yetkilendirme
+                                    Grafik Türleri
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="login.html">Giriş Yap</a><a class="nav-link" href="register.html">Kayıt ol</a><a class="nav-link" href="password.html">Şifremi Unuttum</a></nav>
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="/Graphic/Graphic5/">Pie Grafik</a>
+                                        <a class="nav-link" href="/Graphic/Graphic6/">Line Grafik</a>
+                                        <a class="nav-link" href="/Graphic/Graphic7/">Column Grafik</a>
+                                    </nav>
                                 </div>
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                                     Hata Sayfaları
@@ -123,6 +134,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-barcode"></i></div>
                             Faturalar
                         </a>
+                        <a class="nav-link" href="/Invoice/Dynamic/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                            Dinamik Faturalar
+                        </a>
                         <a class="nav-link" href="/Expense/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-gift"></i></div>
                             Giderler
@@ -147,10 +162,15 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
                             Ürün Detay
                         </a>
-                        <a class="nav-link" href="/Static/EasyTable/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-signal"></i></div>
-                            Hızlı Bakış Tabloları
-                        </a>
+
+                        @if (User.IsInRole("A"))
+                        {
+                            <a class="nav-link" href="/Static/EasyTable/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-signal"></i></div>
+                                Hızlı Bakış Tabloları
+                            </a>
+                        }
+
 
 
 

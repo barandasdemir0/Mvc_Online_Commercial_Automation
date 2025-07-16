@@ -1,0 +1,59 @@
+﻿@model Mvc_Online_Commercial_Automation.Models.Classes.Class2
+@{
+    ViewBag.Title = "Deneme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div>
+    <h2>Kategoriler - Ürünler</h2>
+</div>
+<br />
+<div>
+    @Html.Label("Kategoriler")
+    @Html.DropDownList("DrpCategory", Model.Categorys, "Kategori Seçiniz", new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategoriler")
+    @Html.DropDownList("DrpProduct", Model.Products, "Ürün Seçiniz", new { @class = "form-control" })
+</div>
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script>
+
+    $(function () {
+
+        $('#DrpCategory').change(function () {
+
+            var id = $('#DrpCategory').val();
+
+            $.ajax({
+
+                url: '/Category/BringProduct',
+
+                data: { id: id },
+
+                type: "POST",
+
+                dataType: "Json",
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    $('#DrpProduct').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $('#DrpProduct').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>

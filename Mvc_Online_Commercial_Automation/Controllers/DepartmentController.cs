@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Mvc_Online_Commercial_Automation.Controllers
 {
+    [Authorize(Roles = "A")]
     public class DepartmentController : Controller
     {
         Context context = new Context();
@@ -16,6 +17,7 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             return View(values);
         }
 
+      
         [HttpGet]
         public ActionResult DepartmentsAdd()
         {

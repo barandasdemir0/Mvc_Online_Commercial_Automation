@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace Mvc_Online_Commercial_Automation.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -90,6 +91,8 @@ namespace Mvc_Online_Commercial_Automation.Controllers
 
 
         }
+
+
 
 
     }

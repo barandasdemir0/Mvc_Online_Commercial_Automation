@@ -61,6 +61,28 @@ namespace Mvc_Online_Commercial_Automation.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Deneme()
+        {
+            Class2 class2 = new Class2();
+            class2.Categorys = new SelectList(context.Categories, "CategoryID", "CategoryName");
+            class2.Products = new SelectList(context.Products, "ProductID", "ProductName");
+            return View(class2);
+        }
 
+        public JsonResult BringProduct(int id)
+        {
+            var values = (from x in context.Products
+                          join y in context.Categories on x.Category.CategoryID equals y.CategoryID
+                          where x.Category.CategoryID == id
+                          select new
+                          {
+                              Text = x.ProductName,
+                              Value = x.ProductID.ToString()
+                          }).ToList();
+            return Json(values, JsonRequestBehavior.AllowGet);
+        }
+
+
+       
     }
 }

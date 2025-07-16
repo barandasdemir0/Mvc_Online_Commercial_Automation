@@ -28,6 +28,12 @@
     }
 
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }) ,new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {
+        "page-link"
+    }
+})
 <a href="/Category/CategoryAdd/" class="btn btn-outline-success" > Yeni Kategori Ekle</a>
 
