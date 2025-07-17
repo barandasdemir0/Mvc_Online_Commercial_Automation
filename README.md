@@ -1,7 +1,7 @@
 🎬 Mvc Online Commercial Automation | ASP.NET MVC 5 Web Projesi Tanıtımı
 
-Bu videoda, Udemy üzerinden öğrendiğim konseptleri temel alarak geliştirdiğim **Mvc Online Ticari Otomasyon** projesini tanıtıyorum.  
-Proje, bir mağazanın yönetim süreçlerini dijital ortama taşıyan 3 panelli (kullanıcı, admin, vitrin) modern bir web uygulamasıdır.
+Bu Uygulamada, Udemy üzerinden öğrendiğim konseptleri temel alarak geliştirdiğim **Mvc Online Ticari Otomasyon** projesini tanıtıyorum.  
+Proje, bir mağazanın yönetim süreçlerini dijital ortama taşıyan  modern bir web uygulamasıdır.
 
 ---
 
